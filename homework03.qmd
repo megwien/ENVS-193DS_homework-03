@@ -226,7 +226,5 @@ The authors show their statistics in the top graph by showing the larval pCO~2~ 
 
 There is very little visual clutter in the graphs. There are no gridlines on the figure which makes the data very easy to see, and the legends are very minimal and do not take up much space. The data to ink ratio in. my opinion is very good, you can see enough information to understand what is being depicted but there is not so much so that you cannot see what is being shown.
 
-
-
-
 ### d.
+I would recommend that on the first graph specifically they find a way to show the underlying data in a nondistracting way. I think that the simple approach is good, but without seeing the data points it is less convincing of the point they are trying to make. The bar graphs show enough information that if anything was added it would be too cluttered but the line graph does not have too much information currently and would benefit from adding individual data points for each sea. 
