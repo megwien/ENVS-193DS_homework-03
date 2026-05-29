@@ -27,14 +27,13 @@ kelp <- read_csv("temp-kelp.csv")
 commute <- read_csv("envs193ds-personal_data - Sheet1.csv")
 ```
 
-
 ## Problem 1
 
 ### a.
 
 The two tests that we should run to determine the relationship between temp. and giant kelp elongation rate would be a Pearson correlation test and a Spearman rank test. The tests both measure the strength of the relationship between the variables but the Pearson test relies on a normal and linear distribution and the Spearman test does not need normal distribution.
 
-### b. 
+### b.
 
 ```{r}
 #| label: problem-1b
@@ -50,13 +49,15 @@ ggplot(kelp, mapping = aes(x = temp_c, y = kelp_elong)) +
 theme_classic()
 ```
 
-### c. 
+### c.
+
 #### Checking assumptions
-Linear = yes the data does have a linear relationship. You can see this in problem 1b where the linear graph is the right model for the data. 
+
+Linear = yes the data does have a linear relationship. You can see this in problem 1b where the linear graph is the right model for the data.
 
 Normality = Yes the data is normally distributed, this is shown through the Shapiro test.
 
-Based on these two assumption checks the correct test to run would be the Pearson correlation test. 
+Based on these two assumption checks the correct test to run would be the Pearson correlation test.
 
 ```{r}
 #| label: checking-normality
@@ -73,15 +74,15 @@ cor.test(kelp$temp_c, # setting first variable
          method = "pearson") # setting the method to be Pearson
 ```
 
-### d. 
+### d.
 
-In order to test the strength of the relationship between temperature in Celcius and kelp frond elongation rate in cm/yr I used a Pearson test of correlation (r(30) = -0.687, p = 1.36 x 10^-5^, $\alpha$ = 0.05, CI = (-0.85, -0.45)). This test was ran because the data was normally distributed and showed a linear relationship. This test yielded a value of r = -0.69, which shows a moderate, negative linear correlation between variables. Because of this value and the p value being less than 0.05 we can safely reject the null hypothesis on the grounds of there being a negative correlation between the variables. 
+In order to test the strength of the relationship between temperature in Celcius and kelp frond elongation rate in cm/yr I used a Pearson test of correlation (r(30) = -0.687, p = 1.36 x 10^-5^, $\alpha$ = 0.05, CI = (-0.85, -0.45)). This test was ran because the data was normally distributed and showed a linear relationship. This test yielded a value of r = -0.69, which shows a moderate, negative linear correlation between variables. Because of this value and the p value being less than 0.05 we can safely reject the null hypothesis on the grounds of there being a negative correlation between the variables.
 
-### e. 
+### e.
 
 The results seem to show that the increasing temperature of the ocean may cause kelp growth rates to slow down, which would in turn have larger effects on the kelp's overall health. When the kelp was grown in warmer temperatures the kelp grew at a slower rate. The relationship is represented by a value of -0.69 which means that there is a moderately strong, negative correlation between temperature and elongation rate.
 
-### f. 
+### f.
 
 ```{r}
 #| label: spearman-test
@@ -115,7 +116,6 @@ commute <- commute|>
   # removing spaces and parentheses in column names
   clean_names()
 ```
-
 
 ```{r}
 #| label: plot-1
@@ -159,7 +159,6 @@ scale_color_manual(values = c("lightblue",
                               "lightgreen"))
 ```
 
-
 ```{r}
 # base layer: ggplot
 ggplot(data = commute,
@@ -177,23 +176,18 @@ subtitle = "Most recent observation = 05/22") +
 theme_classic()
 ```
 
-### b. 
-Plot 1.
-Jittered plot showing the mean and standard deviation for commute length depending on the day of the week, Light blue data points represent Friday commutes, pink represents Monday, and green represents Wednesday. The Monday and Wednesday commutes have a higher mean length than the Friday data. Each jittered point represents a specific data point, and the large points and error bars represent the mean and standard deviations for each day.
-Plot 2. 
-Scatterplot depicting relationship between time of day and commute length in minutes. Each point shows a single data point representing a commute length. The plot shows that as the time increases, the length of the commute decreases, showing a negative relationship between time of day and commute length in minutes.
+### b.
 
+Plot 1. Jittered plot showing the mean and standard deviation for commute length depending on the day of the week, Light blue data points represent Friday commutes, pink represents Monday, and green represents Wednesday. The Monday and Wednesday commutes have a higher mean length than the Friday data. Each jittered point represents a specific data point, and the large points and error bars represent the mean and standard deviations for each day. Plot 2. Scatterplot depicting relationship between time of day and commute length in minutes. Each point shows a single data point representing a commute length. The plot shows that as the time increases, the length of the commute decreases, showing a negative relationship between time of day and commute length in minutes.
 
+## Problem 3.
 
+### a.
 
+An affective visualization could show how the commute feels based on day of the week, construction, and weather. I could show how these factors can affect the actual commute length but also how it feels, like if some things contribute to a more peaceful or stressful drive. I will use colors and different patterns to show how these affect the drive.
 
+### b.
 
+![](images/clipboard-2611686638.png)
 
-
-
-
-
-
-
-
-
+### c. 
