@@ -1,0 +1,61 @@
+---
+title: "Homework 3"
+author: "Megan Wien"
+date: "05/28/26"
+format: pdf
+---
+
+##Set Up
+
+```{r}
+#| label: reading-packages
+#| message: false
+# reading in packages
+library(tidyverse)
+library(here)
+library(janitor)
+library(readxl)
+```
+
+```{r}
+#| label: data-set-up
+# creating object for kelp data
+kelp <- read_csv("temp-kelp.csv")
+# creating object for personal data
+commute <- read_csv("envs193ds-personal_data - Sheet1.csv")
+```
+
+
+## Problem 1
+
+### a.
+
+The two tests that we should run to determine the relationship between temp. and giant kelp elongation rate would be a Pearson correlation test and a Spearman rank test. The tests both measure the strength of the relationship between the variables but the Pearson test relies on a normal and linear distribution and the Spearman test does not need normal distribution.
+
+### b. 
+
+```{r}
+#| label: problem-1b
+# base layer ggplot
+ggplot(kelp, mapping = aes(x = temp_c, y = kelp_elong)) + 
+  # first layer: scatter plot
+  geom_point(color = "blue") + 
+  # second layer: line of best fit + ribbon
+  geom_smooth(method = "lm", se = TRUE, color = "darkblue") +
+  # renaming x and y axis
+  labs(x = "Temperature (C)", y = "Kelp Frond Elongation Rate (cm/day)") + 
+theme_classic()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
