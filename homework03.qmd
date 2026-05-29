@@ -44,8 +44,38 @@ ggplot(kelp, mapping = aes(x = temp_c, y = kelp_elong)) +
   geom_smooth(method = "lm", se = TRUE, color = "darkblue") +
   # renaming x and y axis
   labs(x = "Temperature (C)", y = "Kelp Frond Elongation Rate (cm/day)") + 
+  # changing the theme of the graph to classic
 theme_classic()
 ```
+
+### c. 
+#### Checking assumptions
+Linear = yes the data does have a linear relationship. You can see this in problem 1b where the linear graph is the right model for the data. 
+
+Normality = Yes the data is normally distributed, this is shown through the Shapiro test.
+
+Based on these two assumption checks the correct test to run would be the Pearson correlation test. 
+
+```{r}
+#| label: checking-normality
+shapiro.test(kelp$temp_c) # running normality test for temp
+shapiro.test(kelp$kelp_elong) # running normality test for kelp growth rate
+```
+
+#### running the test
+
+```{r}
+# running the correlation test
+cor.test(kelp$temp_c, # setting first variable
+         kelp$kelp_elong, # setting 2nd variable
+         method = "pearson") # setting the method to be Pearson
+```
+
+### d. 
+
+In order to test the strength of the relationship between temperature in Celcius and kelp frond elongation rate in cm/yr I used a Pearson test of correlation (r(30) = -0.687, p = 1.36 x 10^-5^, $\alpha$ = 0.05). This test was ran because the data was normally distributed and showed a linear relationship. This test yielded a value of r = -0.69, which shows a moderate, negative linear correlation between variables. Because of this value and the p value being less than 0.05 we can safely reject the null hypothesis on the grounds of there being a negative correlation between the variables. 
+
+
 
 
 
