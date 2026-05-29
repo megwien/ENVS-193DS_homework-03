@@ -177,6 +177,21 @@ subtitle = "Most recent observation = 05/22") +
 theme_classic()
 ```
 
+### b. 
+Plot 1.
+Jittered plot showing the mean and standard deviation for commute length depending on the day of the week, Light blue data points represent Friday commutes, pink represents Monday, and green represents Wednesday. The Monday and Wednesday commutes have a higher mean length than the Friday data. Each jittered point represents a specific data point, and the large points and error bars represent the mean and standard deviations for each day.
+Plot 2. 
+Scatterplot depicting relationship between time of day and commute length in minutes. Each point shows a single data point representing a commute length. The plot shows that as the time increases, the length of the commute decreases, showing a negative relationship between time of day and commute length in minutes.
+
+
+
+
+
+
+
+
+
+
 
 
 
