@@ -204,9 +204,23 @@ Form: The form of the piece is going to be a painting on paint paper. The orugh 
 
 Process: I created the work by first looking at the original graph and then drawing a road that aligned with the points. Then I added in the elements of road signs and weather conditions.
 
-
 This piece is a painting of a graph of my drive to work at different times of the day turned into a road, combined with the factors that affect the quality of the drive, including weather and construction. This is influenced by road maps and the Jill Pelto piece "Surveying Above and Below the Surface" where she depicted an ocean temperature graph as an ocean with a boat above it. This was created by outlining the shape of the graph as a road and then combining that with the other components of what effects a commute.
 
-### e. 
+### e.
 
-[SLideshow](https://docs.google.com/presentation/d/1R8AbmCVOQoLEJQU__OdJY-zZR1jP2V1eZOjl1CaK64w/edit?usp=sharing)
+[Slideshow](https://docs.google.com/presentation/d/1R8AbmCVOQoLEJQU__OdJY-zZR1jP2V1eZOjl1CaK64w/edit?usp=sharing)
+
+## Problem 4
+
+### a.
+
+The test that the authors are running is an ANOVA test. This test adresses their main question by seeing the variance between the groups in different treatments. They compared the mean responses to the different treatments. If it is found to be significant (P \< 0.05), then the null can be rejected.
+
+![](images/clipboard-2713488346.png)
+
+### b.
+
+
+### c.
+
+### d.
