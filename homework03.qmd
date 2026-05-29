@@ -73,10 +73,24 @@ cor.test(kelp$temp_c, # setting first variable
 
 ### d. 
 
-In order to test the strength of the relationship between temperature in Celcius and kelp frond elongation rate in cm/yr I used a Pearson test of correlation (r(30) = -0.687, p = 1.36 x 10^-5^, $\alpha$ = 0.05). This test was ran because the data was normally distributed and showed a linear relationship. This test yielded a value of r = -0.69, which shows a moderate, negative linear correlation between variables. Because of this value and the p value being less than 0.05 we can safely reject the null hypothesis on the grounds of there being a negative correlation between the variables. 
+In order to test the strength of the relationship between temperature in Celcius and kelp frond elongation rate in cm/yr I used a Pearson test of correlation (r(30) = -0.687, p = 1.36 x 10^-5^, $\alpha$ = 0.05, CI = (-0.85, -0.45)). This test was ran because the data was normally distributed and showed a linear relationship. This test yielded a value of r = -0.69, which shows a moderate, negative linear correlation between variables. Because of this value and the p value being less than 0.05 we can safely reject the null hypothesis on the grounds of there being a negative correlation between the variables. 
 
+### e. 
 
+The results seem to show that the increasing temperature of the ocean may cause kelp growth rates to slow down, which would in turn have larger effects on the kelp's overall health. When the kelp was grown in warmer temperatures the kelp grew at a slower rate. The relationship is represented by a value of -0.69 which means that there is a moderately strong, negative correlation between temperature and elongation rate.
 
+### f. 
+
+```{r}
+#| label: spearman-test
+#| warning: false
+# setting up the correlation test
+cor.test(kelp$temp_c, # setting first variable
+         kelp$kelp_elong, # setting 2nd variable
+         method = "spearman") # assigning spearman test
+```
+
+Through running a Spearman rank test ($\rho$ = -0.69, p = 1.29 x 10^-5^, $\alpha$ = 0.05) I determined that there is a strong negative relationship between temperature and frond elongation rates. The two tests have both led me to reject the null hypothesis of there being no correlation between variables because they both show a negative relationship between the increasing temperature and decreased growth rates. The Spearman test tested without normality and found there is a negative relationship, and the Pearson test used normality and also found a negative, linear relationship.
 
 
 
