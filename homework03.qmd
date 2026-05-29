@@ -19,6 +19,8 @@ library(readxl)
 
 ```{r}
 #| label: data-set-up
+#| message: false
+#| warning: false
 # creating object for kelp data
 kelp <- read_csv("temp-kelp.csv")
 # creating object for personal data
@@ -92,11 +94,88 @@ cor.test(kelp$temp_c, # setting first variable
 
 Through running a Spearman rank test ($\rho$ = -0.69, p = 1.29 x 10^-5^, $\alpha$ = 0.05) I determined that there is a strong negative relationship between temperature and frond elongation rates. The two tests have both led me to reject the null hypothesis of there being no correlation between variables because they both show a negative relationship between the increasing temperature and decreased growth rates. The Spearman test tested without normality and found there is a negative relationship, and the Pearson test used normality and also found a negative, linear relationship.
 
+## Problem 2.
+
+```{r}
+#| label: creating-summary
+commute_summary <- commute |>
+  clean_names() |> 
+# grouping by categorical variable
+group_by(day_of_the_week) |>
+# calculating mean and sd
+summarize(
+mean = mean(commute_length_min),
+sd = sd(commute_length_min))
+```
+
+```{r}
+#| label: cleaning-columns
+# creating object to clean column names
+commute <- commute|> 
+  # removing spaces and parentheses in column names
+  clean_names()
+```
 
 
+```{r}
+#| label: plot-1
+# base layer: ggplot
+ggplot(data = commute,
+
+# assigning x = days of the week, y = commute length
+mapping = aes(x = day_of_the_week,
+              y = commute_length_min,
+              color = day_of_the_week)) +
+
+# first layer: jitter
+geom_jitter(height = 0,
+            alpha = 0.5,
+            width = 0.5) +
+
+# second layer: point range
+geom_pointrange(data = commute_summary,
+
+# assigning the values of mean and sd
+mapping = aes(x = day_of_the_week,
+              y = mean,
+              ymax = mean + sd,
+              ymin = mean - sd)) +
+
+# labeling axis and title
+labs(x = "Day of the week",
+     y = "Commute Length in Minutes",
+     title = "Comparing Commute Length by Days of the Week",
+     subtitle = "Most recent observation = 05/22") +
+
+# changing theme
+theme_classic() +
+
+# removing legend
+theme(legend.position = "none") +
+
+# changing color
+scale_color_manual(values = c("lightblue",
+                              "lightpink",
+                              "lightgreen"))
+```
 
 
-
+```{r}
+# base layer: ggplot
+ggplot(data = commute,
+# assigning x and y axis
+mapping = aes(x = time_of_day_hr_min ,
+y = commute_length_min)) +
+# adding in the data points and coloring
+geom_point(color = "forestgreen") +
+# changing axis labels and adding titles
+labs( x = "Time of Day in Minutes",
+y = "Commute Length in Minutes",
+title = "Commute Length Compared to Time of Day", 
+subtitle = "Most recent observation = 05/22") + 
+# retheming
+theme_classic()
+```
 
 
 
