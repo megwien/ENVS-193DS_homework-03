@@ -2,7 +2,12 @@
 title: "Homework 3"
 author: "Megan Wien"
 date: "05/28/26"
-format: pdf
+format:
+  pdf:
+    toc: true # use this to display a table of contents
+execute:
+  message: false # use this to make sure messages don't show up
+  warning: false # use this to make sure warnings don't show upl
 ---
 
 ##Set Up
