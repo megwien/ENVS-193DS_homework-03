@@ -10,7 +10,7 @@ execute:
   warning: false # use this to make sure warnings don't show upl
 ---
 
-##Set Up
+## Set Up
 
 ```{r}
 #| label: reading-packages
@@ -46,8 +46,6 @@ The two tests that we should run to determine the relationship between temp. and
 ggplot(kelp, mapping = aes(x = temp_c, y = kelp_elong)) + 
   # first layer: scatter plot
   geom_point(color = "blue") + 
-  # second layer: line of best fit + ribbon
-  geom_smooth(method = "lm", se = TRUE, color = "darkblue") +
   # renaming x and y axis
   labs(x = "Temperature (C)", y = "Kelp Frond Elongation Rate (cm/day)") + 
   # changing the theme of the graph to classic
@@ -60,9 +58,31 @@ theme_classic()
 
 Linear = yes the data does have a linear relationship. You can see this in problem 1b where the linear graph is the right model for the data.
 
-Normality = Yes the data is normally distributed, this is shown through the Shapiro test.
+Normality = Yes the data is normally distributed, this is shown through the Shapiro test and through the histogram, which shows that the data collected for both variables does not skew right or left.
 
 Based on these two assumption checks the correct test to run would be the Pearson correlation test.
+```{r}
+#| label: histogram-normality-kelp_elong
+# base layer: ggplot
+ggplot(kelp, mapping = aes(x = kelp_elong)) + 
+  # first layer: histogram
+  geom_histogram() + 
+  # removing gridlines
+  theme_classic()
+```
+
+```{r}
+#| label: histogram-normality-temp_c
+# base layer: ggplot
+ggplot(kelp, mapping = aes(x = temp_c)) + 
+  # first layer: histogram
+  geom_histogram() + 
+  # removing gridlines
+  theme_classic()
+```
+
+
+
 
 ```{r}
 #| label: checking-normality
@@ -183,7 +203,8 @@ theme_classic()
 
 ### b.
 
-Plot 1. Jittered plot showing the mean and standard deviation for commute length depending on the day of the week, Light blue data points represent Friday commutes, pink represents Monday, and green represents Wednesday. The Monday and Wednesday commutes have a higher mean length than the Friday data. Each jittered point represents a specific data point, and the large points and error bars represent the mean and standard deviations for each day. Plot 2. Scatterplot depicting relationship between time of day and commute length in minutes. Each point shows a single data point representing a commute length. The plot shows that as the time increases, the length of the commute decreases, showing a negative relationship between time of day and commute length in minutes.
+Plot 1. Jittered plot showing the mean and standard deviation for commute length depending on the day of the week, Light blue data points represent Friday commutes, pink represents Monday, and green represents Wednesday. The Monday and Wednesday commutes have a higher mean length than the Friday data. Each jittered point represents a specific data point, and the large points and error bars represent the mean and standard deviations for each day. 
+Plot 2. Scatterplot depicting relationship between time of day and commute length in minutes. Each green data point shows a single data point representing a commute length. The plot shows that as the time increases, the length of the commute decreases, showing a negative relationship between time of day and commute length in minutes.
 
 ## Problem 3.
 
